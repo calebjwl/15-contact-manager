@@ -1,0 +1,13 @@
+.sidebar {
+  background: $c-sidebar;
+}
+
+.sidebar__heading {
+  background: $c-sidebar-head;
+  font-size: 12px;
+  padding: 0.5rem;
+
+  &-title {
+    margin: 0;
+  }
+}
