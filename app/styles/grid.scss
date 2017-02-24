@@ -7,24 +7,23 @@
 }
 
 .grid {
-  padding: $m-gutter;
-  background: $c-grid;
   display: flex;
-  flex-grow: 1;
   flex-wrap: wrap;
+  padding: $m-gutter;
 
   &__item {
     flex-grow: 1;
     width: calc(100% / 3 - 2rem);
+    min-width: 10rem;
     margin: 1rem;
   }
 }
 
 .contact-card {
-  border-radius: 0.2rem;
-  border: rgba(#3d3d3d,.55) 0.1rem solid;
-  background: $c-white;
   padding: $m-gutter;
+  border: rgba(#878787,.55) 0.1rem solid;
+  border-radius: 0.2rem;
+  background: $c-white;
 
   &__name {
     display: flex;
@@ -41,7 +40,9 @@
 }
 
 .delete {
-  margin: -$m-gutter;
+  display: block;
+  margin: -1rem;
+  margin-top: 1rem;
   width: calc(100% + 2rem);
   padding: 1rem;
   border: 0;

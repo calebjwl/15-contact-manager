@@ -1,12 +1,13 @@
 .sidebar {
   background: $c-sidebar;
   width: 15rem;
+  box-shadow: 2px 2px 5px rgba(#8b8b8b,.5);
+  position: relative;
+  height: 100vh;
 }
 
 .form {
-  // display: flex;
-  // flex-direction: column;
-  // flex-grow: 1;
+
 }
 
 .sidebar__heading {
@@ -31,7 +32,7 @@
 }
 
 .input__text {
-  height: 2rem;
+  padding: 0.5rem;
   border: 0;
   background: $c-sidebar-head;
 }
@@ -43,4 +44,7 @@
   background: $c-submit;
   color: $c-white;
   font-size: 16px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }

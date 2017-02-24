@@ -20,4 +20,10 @@ $m-gutter: 1rem;
 
 .app {
   display: flex;
+  background: $c-grid;
+  overflow: scroll;
+
+  &__main {
+    flex-grow: 1;
+  }
 }
