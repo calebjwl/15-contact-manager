@@ -9,14 +9,14 @@ export default class ContactFormView {
       ev.preventDefault();
 
       const data = {
-        firstname: this.el.querySelector('.contact-form__firstname').value,
-        lastname: this.el.querySelector('.contact-form__lastname').value,
-        street: this.el.querySelector('.contact-form__street').value,
-        city: this.el.querySelector('.contact-form__city').value,
-        state: this.el.querySelector('.contact-form__state').value,
+        firstname: this.el.querySelector('.contact-card__firstname').value,
+        lastname: this.el.querySelector('.contact-card__lastname').value,
+        street: this.el.querySelector('.contact-card__street').value,
+        city: this.el.querySelector('.contact-card__city').value,
+        state: this.el.querySelector('.contact-card__state').value,
       };
 
-      this.store.dispatch({ type: 'CONTACT_CREATE', data });
-    })
+      this.store.dispatch({ type: 'CONTACT@CREATE', data });
+    });
   }
 }
