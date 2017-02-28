@@ -19,4 +19,13 @@ module('reducer', () => {
     assert.deepEqual(reducer(oldState, actionThree), { contacts: actionThree.data });
   });
 
+  test('remove contact', (assert) => {
+    const oneState = { contacts: [{ firstName: 'Angelina', lastName: 'Jolie', id: 1 }] };
+    const multipleState = { contacts: [{ firstName: 'Angelina', lastName: 'Jolie', id: 1 }, { firstName: 'Nic', lastName: 'Cage', id: 2 }] };
+    const randID = { id: 3 };
+
+    assert.deepEqual(reducer(oneState, oneState), { contacts: [] });
+    assert.deepEqual(reducer(multipleState, oneState), { contacts: [{ firstName: 'Nic', lastName: 'Cage', id: 2 }] });
+    assert.deepEqual(reducer(multipleState, randID), multipleState);
+  });
 });
