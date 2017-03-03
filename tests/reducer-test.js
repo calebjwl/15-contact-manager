@@ -22,10 +22,10 @@ module('reducer', () => {
   test('remove contact', (assert) => {
     const oneState = { contacts: [{ firstName: 'Angelina', lastName: 'Jolie', id: 1 }] };
     const multipleState = { contacts: [{ firstName: 'Angelina', lastName: 'Jolie', id: 1 }, { firstName: 'Nic', lastName: 'Cage', id: 2 }] };
-    const randID = { id: 3 };
+    // const randID = { id: 3 };
+    const action = { type: 'CONTACT@REMOVE', data: [{ firstName: 'Angelina', lastName: 'Jolie', id: 1 }] };
 
-    assert.deepEqual(reducer(oneState, oneState), { contacts: [] });
-    assert.deepEqual(reducer(multipleState, oneState), { contacts: [{ firstName: 'Nic', lastName: 'Cage', id: 2 }] });
-    assert.deepEqual(reducer(multipleState, randID), multipleState);
+    assert.deepEqual(reducer(oneState, action), { contacts: [] });
+    assert.deepEqual(reducer(multipleState, action), { contacts: [{ firstName: 'Nic', lastName: 'Cage', id: 2 }] });
   });
 });

@@ -3,7 +3,7 @@ class ItemView {
     this.data = data;
     this.store = store;
 
-    this.el = document.createElement('div');
+    this.el = document.createElement('li');
     this.el.classList.add('grid__item');
     this.el.innerHTML = `
     <div class="contact-card">
@@ -18,7 +18,11 @@ class ItemView {
     </div>`;
   }
 
-  mounted() {}
+  mounted() {
+    this.el.addEventListener('submit', () => {
+      this.store.dispatch(removeContact(this.contact.id));
+    });
+  }
 
   render() {
     this.el.querySelector('.contact-card__lastname').innerText = `${this.data.lastname}, `;

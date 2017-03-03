@@ -5,7 +5,7 @@ export default function reducer(state, action) {
     case 'CONTACT@FIND_ALL':
       return { contacts: action.data };
     case 'CONTACT@REMOVE':
-      return state.filter(contact => contact.id !== action.id);
+      return { contacts: state.contacts.filter(contact => contact.id !== action.data.id) };
     default:
       return state || { contacts: [] };
   }
