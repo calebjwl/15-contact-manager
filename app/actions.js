@@ -5,14 +5,15 @@ export function findAll(data) {
   };
 }
 
-export function create(data = { id: new Date() }) {
+export function createContact(data) {
   return {
     type: 'CONTACT@CREATE',
     data,
+    id: new Date()
   };
 }
 
-export function remove(id) {
+export function removeContact(id) {
   return {
     type: 'CONTACT@REMOVE',
     id,

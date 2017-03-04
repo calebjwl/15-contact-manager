@@ -19,13 +19,24 @@ module('reducer', () => {
     assert.deepEqual(reducer(oldState, actionThree), { contacts: actionThree.data });
   });
 
-  test('remove contact', (assert) => {
+  test('remove the only contact', (assert) => {
     const oneState = { contacts: [{ firstName: 'Angelina', lastName: 'Jolie', id: 1 }] };
-    const multipleState = { contacts: [{ firstName: 'Angelina', lastName: 'Jolie', id: 1 }, { firstName: 'Nic', lastName: 'Cage', id: 2 }] };
-    // const randID = { id: 3 };
-    const action = { type: 'CONTACT@REMOVE', data: [{ firstName: 'Angelina', lastName: 'Jolie', id: 1 }] };
+    const action = { type: 'CONTACT@REMOVE', id: 1 };
 
     assert.deepEqual(reducer(oneState, action), { contacts: [] });
+  });
+
+  test('remove one contact out of several', (assert) => {
+    const multipleState = { contacts: [{ firstName: 'Angelina', lastName: 'Jolie', id: 1 }, { firstName: 'Nic', lastName: 'Cage', id: 2 }] };
+    const action = { type: 'CONTACT@REMOVE', id: 1 };
+
     assert.deepEqual(reducer(multipleState, action), { contacts: [{ firstName: 'Nic', lastName: 'Cage', id: 2 }] });
+  });
+
+  test('remove a contact without a matching id', (assert) => {
+    const multipleState = { contacts: [{ firstName: 'Angelina', lastName: 'Jolie', id: 1 }, { firstName: 'Nic', lastName: 'Cage', id: 2 }] };
+    const action = { type: 'CONTACT@REMOVE', id: 3 };
+
+    assert.deepEqual(reducer(multipleState, action), multipleState);
   });
 });

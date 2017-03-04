@@ -1,3 +1,5 @@
+import { remove } from '../actions';1
+
 class ItemView {
   constructor(data, store) {
     this.data = data;
