@@ -1,34 +1,32 @@
-import { remove } from '../actions';1
+import { removeContact } from '../actions';
 
 class ItemView {
   constructor(data, store) {
     this.data = data;
     this.store = store;
 
-    this.el = document.createElement('li');
+    this.el = document.createElement('div');
     this.el.classList.add('grid__item');
     this.el.innerHTML = `
     <div class="contact-card">
-      <div class="contact-card__name">
-        <h1 class="contact-card__lastname"></h1>
-        <h1 class="contact-card__firstname"></h1>
-      </div>
+      <h1 class="contact-card__name">
+      </h1>
       <p class="contact-card__street"></p>
       <p class="contact-card__city"></p>
+      <p class="contact-card__state"></p>
 
       <button class="delete">Delete</button>
     </div>`;
   }
 
   mounted() {
-    this.el.addEventListener('submit', () => {
-      this.store.dispatch(removeContact(this.contact.id));
+    this.el.querySelector('.delete').addEventListener('click', () => {
+      this.store.dispatch(removeContact(this.data.id));
     });
   }
 
   render() {
-    this.el.querySelector('.contact-card__lastname').innerText = `${this.data.lastname}, `;
-    this.el.querySelector('.contact-card__firstname').innerText = this.data.firstname;
+    this.el.querySelector('.contact-card__name').innerText = `${this.data.lastname}, ${this.data.firstname}`;
     this.el.querySelector('.contact-card__street').innerText = this.data.street;
     this.el.querySelector('.contact-card__city').innerText = `${this.data.city}`;
     this.el.querySelector('.contact-card__state').innerText = this.data.state;

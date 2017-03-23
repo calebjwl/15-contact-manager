@@ -8,8 +8,7 @@ export function findAll(data) {
 export function createContact(data) {
   return {
     type: 'CONTACT@CREATE',
-    data,
-    id: new Date()
+    data: { ...data, id: new Date() }
   };
 }
 

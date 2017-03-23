@@ -1,13 +1,13 @@
 import ContactFormView from '../view/contact-form';
 import ContactListView from '../view/contact-list';
-import { findAll } from '../actions';
+// import { findAll } from '../actions';
 
 export default class AppController {
   constructor(el, store) {
     this.el = el;
     this.store = store;
 
-    // this.ContactFormView = new ContactFormView(this.el.querySelector('.form'), this.store);
+    this.ContactFormView = new ContactFormView(this.el.querySelector('.sidebar'), this.store);
     this.ContactListView = new ContactListView(this.el.querySelector('.grid'), this.store);
   }
 
@@ -17,7 +17,7 @@ export default class AppController {
       window.localStorage.contacts = JSON.stringify(contacts);
     });
 
-    // this.ContactFormView.mounted();
+    this.ContactFormView.mounted();
     this.ContactListView.mounted();
 
     const dataString = window.localStorage.contacts || '[]';

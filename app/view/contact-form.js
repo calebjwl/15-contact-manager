@@ -1,3 +1,5 @@
+import { createContact } from '../actions';
+
 export default class ContactFormView {
   constructor(el, store) {
     this.el = el;
@@ -16,7 +18,13 @@ export default class ContactFormView {
         state: this.el.querySelector('.contact-card__state').value,
       };
 
-      this.store.dispatch({ type: 'CONTACT@CREATE', data });
+      this.store.dispatch(createContact(data));
+
+      this.el.querySelector('.contact-card__firstname').value = '';
+      this.el.querySelector('.contact-card__lastname').value = '';
+      this.el.querySelector('.contact-card__street').value = '';
+      this.el.querySelector('.contact-card__city').value = '';
+      this.el.querySelector('.contact-card__state').value = '';
     });
   }
 }
