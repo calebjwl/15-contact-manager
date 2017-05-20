@@ -1,10 +1,10 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  background: $c-sidebar;
-  width: 15rem;
   box-shadow: 2px 2px 5px rgba(#8b8b8b,.5);
+  background: $c-sidebar;
   min-height: 100vh;
+  min-width: 15rem;
 }
 
 .form {

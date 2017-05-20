@@ -12,8 +12,10 @@ class ItemView {
       <h1 class="contact-card__name">
       </h1>
       <p class="contact-card__street"></p>
-      <p class="contact-card__city"></p>
-      <p class="contact-card__state"></p>
+      <p className="contact-card__location">
+        <p class="contact-card__city"></p>
+        <p class="contact-card__state"></p>
+      </p>
 
       <button class="delete">Delete</button>
     </div>`;
@@ -28,7 +30,7 @@ class ItemView {
   render() {
     this.el.querySelector('.contact-card__name').innerText = `${this.data.lastname}, ${this.data.firstname}`;
     this.el.querySelector('.contact-card__street').innerText = this.data.street;
-    this.el.querySelector('.contact-card__city').innerText = `${this.data.city}`;
+    this.el.querySelector('.contact-card__city').innerText = `${this.data.city}, `;
     this.el.querySelector('.contact-card__state').innerText = this.data.state;
   }
 }

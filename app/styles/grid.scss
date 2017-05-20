@@ -1,15 +1,21 @@
 .section {
-
+  padding: $m-gutter;
 }
 
-.container {
+.title {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
 
+  &__text {
+    margin: 0;
+    font-family: 'Pacifico';
+  }
 }
 
 .grid {
   display: flex;
   flex-wrap: wrap;
-  padding: $m-gutter;
 
   &__item {
     flex-grow: 1;
@@ -41,13 +47,21 @@
   &__location {
     display: flex;
   }
+
+  // &__city {
+  //   margin: 0;
+  // }
+  //
+  // &__state {
+  //   margin: 0;
+  // }
 }
 
 .delete {
   display: block;
+  width: calc(100% + 2rem);
   margin: -1rem;
   margin-top: 0.5rem;
-  width: calc(100% + 2rem);
   padding: 1rem;
   border: 0;
   background: $c-delete;
